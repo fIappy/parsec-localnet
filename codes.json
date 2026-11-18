@@ -1,0 +1,319 @@
+{
+	"1": {
+		"url": "",
+		"type": "warning",
+		"title": "Parsec is being restarted on the host computer",
+		"desc": "Try connecting again in a few seconds."
+	},
+	"3": {
+		"url": "",
+		"type": "warning",
+		"title": "",
+		"desc": "The host OS closed the Parsec application due to a login/logout event, please reconnect."
+	},
+	"4": {
+		"url": "",
+		"type": "warning",
+		"title": "",
+		"desc": "The host shut down."
+	},
+	"5": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002625091",
+		"type": "warning",
+		"title": "",
+		"desc": "You have been kicked by the host."
+	},
+	"6": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002624531",
+		"type": "warning",
+		"title": "Your connection attempt wasn't approved in time",
+		"desc": "The host needs to approve your connection for you to join."
+	},
+	"8": {
+		"url": "",
+		"type": "warning",
+		"title": "Your connection attempt was rejected",
+		"desc": "The host declined your request or blocked you."
+	},
+	"9": {
+		"url": "",
+		"type": "warning",
+		"title": "",
+		"desc": "You canceled the connection attempt."
+	},
+	"11": {
+		"url": "",
+		"type": "warning",
+		"title": "The computer you tried to join is full",
+		"desc": "Wait for a free slot or ask the host to increase the number of slots."
+	},
+	"12": {
+		"url": "https://support.parsec.app/hc/en-us/articles/6371362020365",
+		"type": "warning",
+		"title": "",
+		"desc": "You were disconnected from the host due to inactivity."
+	},
+	"13": {
+		"url": "",
+		"type": "warning",
+		"title": "",
+		"desc": "You were disconnected from the host due to the owner's disconnection."
+	},
+	"14": {
+		"url": "https://support.parsec.app/hc/en-us/articles/4421515077773",
+		"type": "warning",
+		"title": "Your connection is not allowed",
+		"desc": "The host you are connecting to has Privacy Mode enabled, but the prerequisite Parsec Virtual Display Driver is either not installed or not working correctly."
+	},
+	"15": {
+		"url": "",
+		"type": "warning",
+		"title": "The host computer went to sleep",
+		"desc": "The host computer you were connected to went to sleep and has closed the connection."
+	},
+	"30": {
+		"url": "https://parsec.app/downloads",
+		"label": "Download",
+		"type": "warning",
+		"title": "Your browser can not make connections in the web app",
+		"desc": "The Parsec web app only works in recent versions of Chrome and Edge, please use one of these browsers or install the Parsec app on your client to continue."
+	},
+	"99": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002601752",
+		"type": "warning",
+		"title": "The computer you're connecting to is no longer available",
+		"desc": "Check if the machine is online, get a new link if applicable, or try to restart Parsec on both ends."
+	},
+	"101": {
+		"url": "",
+		"type": "warning",
+		"title": "Multi-factor authentication is required",
+		"desc": "Your team requires that you enable multi-factor authentication before making connections."
+	},
+	"102": {
+		"url": "",
+		"type": "warning",
+		"title": "You cannot connect to this computer.",
+		"desc": "Your email domain has been verified as belonging to a 'Parsec for Teams' account. You will not be able to make connections from this domain using personal accounts. Please reach out to your internal IT team for access."
+	},
+	"112": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360049831391",
+		"type": "warning",
+		"title": "You don't have the permission to connect to this computer",
+		"desc": "You're not in the same Parsec Teams group as the computer you're attempting to connect to."
+	},
+	"-10": {
+		"url": "https://support.parsec.app/hc/en-us/articles/7845213202445",
+		"type": "error",
+		"title": "Parsec couldn't find a compatible video decoder",
+		"desc": "Please check our article for more information."
+	},
+	"-14": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002625712",
+		"type": "error",
+		"title": "Your device failed to decode the video stream",
+		"desc": "Please check our article for more information."
+	},
+	"-18": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360001690972",
+		"type": "error",
+		"title": "Your device had issues decoding the video stream",
+		"desc": "This device may be incompatible with Parsec, please check our article for more information."
+	},
+	"-19": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360002529252",
+		"type": "error",
+		"title": "Your device isn't supported by Parsec",
+		"desc": "This Android device does not work with Parsec currently."
+	},
+	"-1002": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002626391",
+		"type": "error",
+		"title": "You don't have access to a host computer",
+		"desc": "Running Parsec in CLI mode requires that you enable hosting on a Windows machine."
+	},
+	"-1003": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002626611",
+		"type": "error",
+		"title": "Parsec does not have sufficient permissions on this device",
+		"desc": "Parsec was unable to write required data to your device."
+	},
+	"-2001": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002626051",
+		"type": "error",
+		"title": "You do not have permission to make this connection",
+		"desc": "You can't connect with this peer_id."
+	},
+	"-3010": {
+		"url": "",
+		"type": "warning",
+		"title": "Your Teams subscription expired",
+		"desc": "Resume the subscription in the Teams Admin Panel to continue using Parsec, or leave this team in your Parsec account settings."
+	},
+	"-6023": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002601011",
+		"type": "error",
+		"title": "The peer-to-peer network connection between you and the other computer failed",
+		"desc": "Something is preventing Parsec from making the connection, check our article for more information."
+	},
+	"-6024": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002601011",
+		"type": "error",
+		"title": "Failed to connect to Parsec STUN servers",
+		"desc": "Something may be blocking your connection to the Parsec STUN server, check our article for more information."
+	},
+	"-6101": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360000059931",
+		"type": "error",
+		"title": "Parsec couldn't communicate with its servers",
+		"desc": "Something is preventing Parsec from making a websocket connection to its backend."
+	},
+	"-6107": {
+		"url": "https://support.parsec.app/hc/en-us/articles/4410906958861",
+		"type": "error",
+		"title": "",
+		"desc": "You must re-authenticate."
+	},
+	"-6112": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360023178732",
+		"type": "error",
+		"title": "IPv6 is disabled or not supported",
+		"desc": "Your device must support IPv6 even if you're using IPv4."
+	},
+	"-6200": {
+		"url": "https://parsec.app/downloads",
+		"label": "Download",
+		"type": "error",
+		"title": "The network connection between you and the other computer failed with webRTC",
+		"desc": "Please install Parsec on your client which is more likely to work."
+	},
+	"-7000": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002626232",
+		"type": "error",
+		"title": "OpenGL was unable to be launched",
+		"desc": "Make sure your device meets our minimum requirements and is setup correctly."
+	},
+	"-7007": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360000173891",
+		"type": "error",
+		"title": "This device has an incompatible version of OpenGL",
+		"desc": "Make sure your device meets our minimum requirements and is setup correctly."
+	},
+	"-12007": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115003074512",
+		"type": "error",
+		"title": "The network connection was lost",
+		"desc": "The connection is unreliable, or the other computer has crashed."
+	},
+	"-12010": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115003074532",
+		"type": "error",
+		"title": "The computer you were connected to disappeared",
+		"desc": "The computer may have crashed or lost the internet connection."
+	},
+	"-13000": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002623532",
+		"type": "error",
+		"title": "The computer you're joining is trying to use an unsupported resolution",
+		"desc": "Change the resolution to something else on the host computer's Parsec settings."
+	},
+	"-13008": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002623751",
+		"type": "error",
+		"title": "The computer you're joining is trying to use an unsupported resolution",
+		"desc": "Change the resolution to something else on the host computer's Parsec settings."
+	},
+	"-13009": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360000159992",
+		"type": "error",
+		"title": "The host resolution is above our maximum supported resolution of 3840x2160",
+		"desc": "Try to lower the resolution of the display on the host computer."
+	},
+	"-13012": {
+		"url": "",
+		"type": "warning",
+		"title": "",
+		"desc": "The host is not allowing any more guests."
+	},
+	"-13015": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360047224232",
+		"type": "error",
+		"title": "Something went wrong with the client device while initializing the stream",
+		"desc": "Please check our article for more information."
+	},
+	"-14003": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360002165172",
+		"type": "error",
+		"title": "We were unable to capture the screen of the computer you were attempting to connect to",
+		"desc": "Check our article for more information."
+	},
+	"-15000": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002624051",
+		"type": "error",
+		"title": "The computer you are attempting connect to does not support hardware video encoding",
+		"desc": "The host computer may have unsupported hardware or its drivers need an update, check our article for more information."
+	},
+	"-15002": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360000513331",
+		"type": "error",
+		"title": "The host encoder failed",
+		"desc": "This could be because on the host either HDR is active, the display resolution is too high, or the graphics driver needs an update."
+	},
+	"-15106": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360033132792",
+		"type": "error",
+		"title": "The host encoder failed",
+		"desc": "This could be because on the host either HDR is active, or the display resolution is too high."
+	},
+	"-15107": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360001383432",
+		"type": "error",
+		"title": "The resolution is too high on the host",
+		"desc": "Reduce the resolution on the host computer to connect."
+	},
+	"-18000": {
+		"url": "https://support.parsec.app/hc/en-us/articles/115002626352",
+		"type": "error",
+		"title": "Parsec couldn't communicate with its servers",
+		"desc": "Check if your internet is working, and if it is, check our article for more information."
+	},
+	"-22008": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360002165172",
+		"type": "error",
+		"title": "",
+		"desc": "The host could not capture the screen."
+	},
+	"-32001": {
+		"url": "https://parsec.app/downloads",
+		"label": "Download",
+		"type": "error",
+		"title": "The web app failed to connect to your host",
+		"desc": "Please install the Parsec app on your client and retry the connection."
+	},
+	"-32002": {
+		"url": "https://parsec.app/downloads",
+		"label": "Download",
+		"type": "error",
+		"title": "The web app failed to connect to your host",
+		"desc": "Please install the Parsec app on your client and retry the connection."
+	},
+	"-32003": {
+		"url": "https://parsec.app/downloads",
+		"label": "Download",
+		"type": "error",
+		"title": "The web app failed to connect to your host",
+		"desc": "Please install the Parsec app on your client and retry the connection."
+	},
+	"-800097": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360004310251",
+		"type": "error",
+		"title": "IPv6 is disabled",
+		"desc": "Your device must have IPv6 enabled even if you're using IPv4."
+	},
+	"-800098": {
+		"url": "https://support.parsec.app/hc/en-us/articles/360004310251",
+		"type": "error",
+		"title": "IPv6 is disabled",
+		"desc": "Your device must have IPv6 enabled even if you're using IPv4."
+	}
+}

@@ -1,0 +1,13 @@
+# generated TLS material (python gen-certs.py)
+ca.key
+ca.pem
+leaf.key
+leaf-chain.pem
+
+# runtime state and logs
+privsvr.log
+state.json
+
+# python
+__pycache__/
+*.pyc

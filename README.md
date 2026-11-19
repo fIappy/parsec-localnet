@@ -67,7 +67,9 @@ new absolute paths; the shortcut is recreated too. No config file holds paths.
 
 ## Runtime
 
-- `privsvr.log` — requests, WS frames, relay decisions (created next to the script).
+- `privsvr.log` — requests, WS frames, heartbeat losses, relay decisions (created next to the script).
+- WS heartbeat: server pings every 15 s; a peer with no frame for 45 s is
+  marked offline. Clean disconnects are immediate (2 s list grace).
 - `state.json` — peer ids per host name, preserved across restarts.
 
 ## Parsec-side patches (not part of this folder)

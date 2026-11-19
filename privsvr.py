@@ -40,6 +40,8 @@ attempts = {}   # attempt_id -> {"client": client_id, "host": peer_id}
 pending = {}    # peer_id -> [{"conn":..,"payload":..,"timer":..}]
 QUEUE_GRACE = 3.0      # seconds to wait for a host reconnect before failing the offer
 OFFLINE_GRACE = 2.0    # keep a just-disconnected host listed for this long
+HEARTBEAT_INTERVAL = 15.0   # seconds between server -> peer WS pings
+HEARTBEAT_TIMEOUT = 45.0    # no frame at all for this long => peer is gone
 client_seq = [0]
 state = {"names": {}}   # host name -> peer_id
 
@@ -96,6 +98,8 @@ class WSConn:
         self.id = None
         self.peer = None
         self.alive = True
+        self.last_seen = time.time()
+        self.last_ping = 0.0
 
     def send_json(self, obj):
         payload = json.dumps(obj, separators=(",", ":")).encode()
@@ -125,6 +129,14 @@ class WSConn:
         with self.send_lock:
             try:
                 self.sock.sendall(bytes(hdr) + data)
+            except Exception:
+                pass
+
+    def send_ping(self):
+        payload = struct.pack(">I", int(time.time()) & 0xFFFFFFFF)
+        with self.send_lock:
+            try:
+                self.sock.sendall(bytes([0x89, len(payload)]) + payload)
             except Exception:
                 pass
 
@@ -413,6 +425,7 @@ def ws_session(conn, role, session):
             if not d:
                 log(f"ws {wsc.id or wsc.role} EOF from peer")
                 break
+            wsc.last_seen = time.time()
             frames, buf = feed_frames(buf, d)
             for op, pl in frames:
                 log(f"frame {wsc.role} op={op} len={len(pl)}")
@@ -513,6 +526,24 @@ def read_http_request(conn):
     return head, rest
 
 
+def heartbeat_loop():
+    while True:
+        time.sleep(5)
+        now = time.time()
+        with _lock:
+            conns = [h["conn"] for h in hosts.values() if h.get("conn")]
+            conns += list(clients.values())
+        for wsc in conns:
+            if not wsc.alive:
+                continue
+            if now - wsc.last_seen > HEARTBEAT_TIMEOUT:
+                log(f"heartbeat lost {wsc.id} ({wsc.role})")
+                wsc.close()
+            elif now - wsc.last_ping > HEARTBEAT_INTERVAL:
+                wsc.last_ping = now
+                threading.Thread(target=wsc.send_ping, daemon=True).start()
+
+
 def serve(conn, addr):
     try:
         conn.settimeout(300)
@@ -568,6 +599,7 @@ def main():
     srv.bind(("0.0.0.0", args.port))
     srv.listen(64)
     log(f"private signaling server on :{args.port} state={STATE}")
+    threading.Thread(target=heartbeat_loop, daemon=True).start()
 
     def accept(raw, addr):
         try:

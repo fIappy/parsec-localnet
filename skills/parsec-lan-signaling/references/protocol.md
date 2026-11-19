@@ -96,6 +96,24 @@ text frame:
 {"version":1,"action":"<name>","payload":{...}}
 ```
 
+### Liveness
+
+There is no presence push action in the client (no `host_state`/`presence`;
+only `conn_update`, `offer`, `answer`, `candex`, `close`). Online state is
+server-side truth plus the UI polling `GET /v2/hosts` (observed every ~20 s
+while the Computers page is active; also on page open, focus and Refresh).
+
+The server keeps that truth current:
+
+- Sends a WS ping (op `0x9`) every 15 s to every registered host and every
+  active client connection.
+- Any received frame — data, ping or pong (op `0xA`) — refreshes `last_seen`.
+- No frame for 45 s: log `heartbeat lost <peer> (<role>)`, close the socket;
+  cleanup marks the host offline. A sleeping Mac or a Wi-Fi drop therefore
+  disappears within ~45–50 s instead of a 5-minute TCP timeout.
+- A clean WS close (op `0x8`) or EOF marks the host offline immediately; the
+  list hides it after `OFFLINE_GRACE` (2 s).
+
 ### host -> server: conn_update
 
 ```json
@@ -198,8 +216,8 @@ Ignoring it is safe for a LAN relay.
 - Route `answer`/`candex`/`close` by `attempt_id` to the peer of that attempt
   (client sender -> host connection, host sender -> client connection).
 - A host that disconnects stays listed for 2 s (bridges immediate reconnects);
-  a host silent for 45 s (no WS frame at all; hosts ping every 30 s) is treated
-  as gone and dropped, so sleep/Wi-Fi drops do not leave a phantom card.
+  the server pings every 15 s and drops a peer silent for 45 s, so sleep/Wi-Fi
+  drops do not leave a phantom card.
 - Queue `offer`s for an offline peer for a short grace (3 s) and flush them on
   the next `conn_update`; when the grace expires, answer the client with
   `close {reason:"HOST_NOT_FOUND"}` instead of leaving the attempt pending.
